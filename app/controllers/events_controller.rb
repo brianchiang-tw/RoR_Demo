@@ -19,10 +19,19 @@ class EventsController < ApplicationController
     # create a new entry in table, data comes from new action
     def create
         @event = Event.new( event_params )
-        @event.save
+        save_successful = @event.save
 
-        # Redirect to action index after entry creation
-        redirect_to :action => :index
+        if save_successful
+
+            # Redirect to action index after entry creation
+            redirect_to :action => :index
+
+        else
+
+            # Go back to new data input webpage for re-input again
+            render :action => :new
+
+        end
 
     end
 
@@ -47,10 +56,20 @@ class EventsController < ApplicationController
     # update the result of edit
     def update
         #@event = Event.find( params[:id] )
-        @event.update( event_params )
 
-        # Redirect to action show after update completion
-        redirect_to :action => :show, :id => @event
+        update_successful =@event.update( event_params )
+
+        if update_successful
+
+            # Redirect to action show after update completion
+            redirect_to :action => :show, :id => @event
+
+        else
+
+            # Go back to new data edit webpage for re-input again
+            render :action => :edit
+
+        end
     end
 
 
