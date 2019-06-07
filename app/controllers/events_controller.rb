@@ -5,7 +5,11 @@ class EventsController < ApplicationController
 
     def index
         # Get all data from table Event
-        @events = Event.all
+        #@events = Event.all
+
+        # Get all data from table Event, and make each 5 pages as a group
+        @events = Event.page(params[:page]).per(5)
+
     end
 
 
