@@ -1,5 +1,8 @@
 class EventsController < ApplicationController
 
+    before_action :set_event, :only => [ :show, :edit, :update, :destroy ]
+
+
     def index
         # Get all data from table Event
         @events = Event.all
@@ -28,7 +31,7 @@ class EventsController < ApplicationController
     # query specific item by entry id
     def show
 
-        @event = Event.find( params[:id] )
+        #@event = Event.find( params[:id] )
         @page_title = @event.name
 
     end
@@ -37,13 +40,13 @@ class EventsController < ApplicationController
     # edit specific item by entry id
     def edit
 
-        @event = Event.find( params[:id] )
+        #@event = Event.find( params[:id] )
 
     end
 
     # update the result of edit
     def update
-        @event = Event.find( params[:id] )
+        #@event = Event.find( params[:id] )
         @event.update( event_params )
 
         # Redirect to action show after update completion
@@ -55,7 +58,7 @@ class EventsController < ApplicationController
     # delete specific item by entry id
     def destroy
 
-        @event = Event.find( params[:id] )
+        #@event = Event.find( params[:id] )
         @event.destroy
 
         # Redirect to action index after delete completion
@@ -73,5 +76,10 @@ class EventsController < ApplicationController
         params.require(:event).permit(:name, :description)
     end
 
+
+    # Make a tempate for shared code block reuse in action
+    def set_event
+        @event = Event.find( params[:id] )
+    end
  
 end
