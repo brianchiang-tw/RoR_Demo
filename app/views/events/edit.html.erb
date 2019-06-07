@@ -1,13 +1,16 @@
 
 <%= form_for @event, :url => { :controller => 'events', :action => 'update', :id => @event } do | f | %>
 
-<!-- name -->
-<%= f.label :name, "Name" %>
-<%= f.text_field :name %>
 
-<%= f.label :description, "Description" %>
-<%= f.text_area :description %>
+<% if false %>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
 
+    <%= f.label :description, "Description" %>
+    <%= f.text_area :description %>
+<% end %>
+
+<%= render :partial => 'form', :locals => { :f => f } %>
 <%= f.submit "Update" %>
 
 <% end %>

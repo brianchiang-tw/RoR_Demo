@@ -1,0 +1,14 @@
+The comment syntax in .html.erb file
+
+
+<%-# commented line -%> for single line comment
+
+<% if false %>
+code to comment...
+
+...
+
+code to comment...
+<% end %> for multi line comment
+
+
