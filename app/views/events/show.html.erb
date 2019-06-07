@@ -1,0 +1,10 @@
+
+<%= @event.name %>
+
+
+<!-- simple_format( ... ) is in built-in View Helper -->
+
+<%= simple_format(@event.description) %>
+
+
+<p> <%= link_to 'Back to index', :controller => 'events', :action => 'index' %> </p>

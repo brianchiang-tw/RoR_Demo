@@ -25,6 +25,15 @@ class EventsController < ApplicationController
 
 
 
+    # query specific item by entry id
+    def show
+
+        @event = Event.find( params[:id] )
+
+    end
+
+
+
 
     private
 
