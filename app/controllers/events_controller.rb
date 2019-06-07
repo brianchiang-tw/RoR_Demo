@@ -51,8 +51,20 @@ class EventsController < ApplicationController
 
 
 
+    # delete specific item by entry id
+    def destroy
 
-    #Method attribute after this line is set to "private".
+        @event = Event.find( params[:id] )
+        @event.destroy
+
+        # Redirect to action index after delete completion
+        redirect_to :action => :index
+
+    end
+
+
+
+    # Method attribute after this line is set to "private".
     private
 
     # Variable check (String parameters mechanism)
