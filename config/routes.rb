@@ -14,8 +14,8 @@ Rails.application.routes.draw do
 	# Set wildcard route
 	# maps URL http://localhost:3000/a/b to controller "a" and action "b"
 	# maps URL http://localhost:3000/a/ to index action
-	match ':controller(/:action(/:id(.:format)))', :via  => :all
-
+	match ':controller(/:action(/:id(.:format)))', :via => :all
+	
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

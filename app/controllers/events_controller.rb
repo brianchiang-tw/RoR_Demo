@@ -15,7 +15,7 @@ class EventsController < ApplicationController
 
     # create a new entry in table, data comes from new action
     def create
-        @event = Event.new( params[:event] )
+        @event = Event.new( event_params )
         @event.save
 
         # Redirect to action index after entry creation
