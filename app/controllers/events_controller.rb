@@ -33,8 +33,26 @@ class EventsController < ApplicationController
     end
 
 
+    # edit specific item by entry id
+    def edit
+
+        @event = Event.find( params[:id] )
+
+    end
+
+    # update the result of edit
+    def update
+        @event = Event.find( params[:id] )
+        @event.update( event_params )
+
+        # Redirect to action show after update completion
+        redirect_to :action => :show, :id => @event
+    end
 
 
+
+
+    #Method attribute after this line is set to "private".
     private
 
     # Variable check (String parameters mechanism)
