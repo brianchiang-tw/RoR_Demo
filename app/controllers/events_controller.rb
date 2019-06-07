@@ -33,6 +33,9 @@ class EventsController < ApplicationController
 
         end
 
+        # Use the Flash message in Rails
+        flash[:notice] = "Event was successfully created."
+
     end
 
 
@@ -70,6 +73,10 @@ class EventsController < ApplicationController
             render :action => :edit
 
         end
+
+        # Use the Flash message in Rails
+        flash[:notice] = "event was successfully updated."
+
     end
 
 
@@ -82,6 +89,9 @@ class EventsController < ApplicationController
 
         # Redirect to action index after delete completion
         redirect_to :action => :index
+
+        # Use the Flash message in Rails
+        flash[:alert] = "event was successfully deleted"
 
     end
 
