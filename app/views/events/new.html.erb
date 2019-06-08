@@ -1,5 +1,11 @@
 
-<%= form_for @event, :url => { :controller => 'events', :action => 'create'} do |f| %>
+
+
+<% if false %>
+# RESTful style
+<% end %>
+
+<%= form_for @event, :url => events_path do |f| %>
 
 
     <% if false %>

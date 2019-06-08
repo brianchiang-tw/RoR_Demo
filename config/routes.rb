@@ -1,6 +1,25 @@
 Rails.application.routes.draw do
 
-  resources :people
+	# RESTful style
+	# Auto create named route with HTTP verbs( GET, POST, PUT, DELETE) and RoR's Actions
+
+
+# 	  Prefix Verb   URI Pattern                            Controller#Action
+# ===========================================================================
+# 	  events GET    /events(.:format)                      events#index
+# 		     POST   /events(.:format)                      events#create
+#  new_event GET    /events/new(.:format)                  events#new
+# edit_event GET    /events/:id/edit(.:format)             events#edit
+# 	   event GET    /events/:id(.:format)                  events#show
+# 		     PATCH  /events/:id(.:format)                  events#update
+# 		     PUT    /events/:id(.:format)                  events#update
+# 		     DELETE /events/:id(.:format)                  events#destroy
+
+
+
+	resources :events
+
+  	resources :people
 	# maps URL http://localhost:3000/welcome/say_hello to Controller "welcome" and Action "say"
 	get "welcome/say_hello" => "welcome#say"
 
@@ -14,7 +33,7 @@ Rails.application.routes.draw do
 	# Set wildcard route
 	# maps URL http://localhost:3000/a/b to controller "a" and action "b"
 	# maps URL http://localhost:3000/a/ to index action
-	match ':controller(/:action(/:id(.:format)))', :via => :all
+	# match ':controller(/:action(/:id(.:format)))', :via => :all
 	
 
 

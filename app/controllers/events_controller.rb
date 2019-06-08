@@ -28,7 +28,10 @@ class EventsController < ApplicationController
         if save_successful
 
             # Redirect to action index after entry creation
-            redirect_to :action => :index
+            # redirect_to :action => :index
+
+            # RESTful style
+            redirect_to events_url
 
         else
 
@@ -69,7 +72,10 @@ class EventsController < ApplicationController
         if update_successful
 
             # Redirect to action show after update completion
-            redirect_to :action => :show, :id => @event
+            # redirect_to :action => :show, :id => @event
+
+            # RESTful style
+            redirect_to event_url( @event )
 
         else
 
@@ -92,7 +98,10 @@ class EventsController < ApplicationController
         @event.destroy
 
         # Redirect to action index after delete completion
-        redirect_to :action => :index
+        #redirect_to :action => :index
+
+        # RESTful style
+        redirect_to events_url
 
         # Use the Flash message in Rails
         flash[:alert] = "event was successfully deleted"
